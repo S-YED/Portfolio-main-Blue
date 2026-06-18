@@ -10,7 +10,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@img/sharp-win32-x64": "^0.35.1",
     "@next/third-parties": "^15.2.4",
     "@react-three/drei": "^9.122.0",
     "@react-three/fiber": "^8.18.0",
