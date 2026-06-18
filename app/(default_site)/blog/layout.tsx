@@ -5,7 +5,7 @@ const siteUrl = process.env.SITE_URL ?? "https://syedkm.com";
 const siteName = process.env.SITE_NAME ?? "syedkm.com";
 
 const blogDescription =
-  "Notes from real work — QA, cloud infrastructure, and lessons learned by shipping.";
+  "Notes from real work: QA, cloud infrastructure, and lessons learned by shipping.";
 
 // Generate the metadata for the blogs page
 export async function generateMetadata(): Promise<Metadata> {

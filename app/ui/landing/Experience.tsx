@@ -11,11 +11,11 @@ const experienceData = [
     period: "Jan 2026 - May 2026",
     highlights: [
       "Designed & documented the company's full GitFlow CI/CD branching strategy (main / develop / feature / release / hotfix), adopted by the engineering team.",
-      "Worked on attentionhero.com — a live SaaS platform (Next.js / MongoDB / Vercel) serving real users with continuous feature deployments.",
+      "Worked on attentionhero.com, a live SaaS platform (Next.js / MongoDB / Vercel) serving real users with continuous feature deployments.",
       "Gained GCP exposure working with AI recording & game-backend services running on Google Cloud Platform production servers.",
       "Conducted PR code reviews, identifying logic issues and edge cases before merge.",
       "Owned comprehensive testing coverage: 200+ test cases (functional, regression, smoke, integration) across 10+ browser/device combos via BrowserStack.",
-      "Tracked 50+ defects with severity, priority, and reproduction steps across releases v2.0 – v2.4+.",
+      "Tracked 50+ defects with severity, priority, and reproduction steps across releases v2.0 to v2.4+.",
       "Managed daily smoke testing (AM & PM), QA sign-off for production releases, and structured release documentation for stakeholders.",
     ],
   },

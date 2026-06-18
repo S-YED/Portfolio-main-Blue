@@ -37,7 +37,7 @@ export function Flex(): JSX.Element {
           </span>
           . I went from a fresh graduate to working on a live SaaS product in
           production. I&apos;ve attended 10+ industry conferences, earned
-          competitive fellowships, and I&apos;m still building — every single
+          competitive fellowships, and I&apos;m still building, every single
           day.
         </motion.div>
         <div className="info-plus-data-achievements flex flex-col gap-10 items-start text-sm sm:text-base">

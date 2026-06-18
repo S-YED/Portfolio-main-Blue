@@ -12,7 +12,7 @@ import { projectDataType } from "@/app/lib/definitions";
 import { SectionHeading } from "@/app/ui/components/SectionHeading";
 
 export function Projects(): JSX.Element {
-  // Newest first by default — recruiters should see the strongest, most
+  // Newest first by default: recruiters should see the strongest, most
   // recent work at the top without touching the sort control.
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [pageNo, setPageNo] = useState<number>(1);
@@ -93,9 +93,9 @@ export function Projects(): JSX.Element {
               className="w-auto h-auto dark:text-cyan-200 text-cyan-800 font-semibold hover:underline"
             >
               TON Scholar
-            </Link>{" "}
-            — a blockchain DApp my team shipped at the TON Bangalore Bootcamp
-            Hackathon (it won a challenge prize) — and I contribute to open
+            </Link>
+            , a blockchain DApp my team shipped at the TON Bangalore Bootcamp
+            Hackathon (it won a challenge prize), and I contribute to open
             source on{" "}
             <Link
               target="_blank"
@@ -217,7 +217,7 @@ function ProjectCard({
             rel="noopener noreferrer"
             className="w-full h-fit"
             href={primaryLink}
-            aria-label={`${name} — ${deployedLink ? "open live site" : "open repository"}`}
+            aria-label={`${name}, ${deployedLink ? "open live site" : "open repository"}`}
           >
             <div className="image group relative w-full h-[200px] overflow-hidden rounded-t-xl border-[#dbd5d5] dark:border-[#484a50] flex items-center justify-center border-2">
               {/* Show gif if available, fallback to image if gif fails or is slow to load */}

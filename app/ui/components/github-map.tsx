@@ -142,7 +142,7 @@ export function GithubMap(): JSX.Element {
       ) : (
         // Fetch failed: keep the section visible with a useful fallback
         <div className="map-fallback text-sm sm:text-base text-neutral-900 dark:text-neutral-300">
-          Couldn&apos;t load the contribution graph right now — see my activity
+          Couldn&apos;t load the contribution graph right now. See my activity
           directly on{" "}
           <Link
             href={`https://github.com/${USER_NAME}`}

@@ -18,7 +18,7 @@ export default function Blog(): JSX.Element {
               My Blogs ✨
             </h1>
             <p className="w-fit h-fit text-center text-sm sm:text-base text-neutral-700 dark:text-neutral-400">
-              Notes from real work — QA, cloud infrastructure, and things I
+              Notes from real work: QA, cloud infrastructure, and things I
               learned by shipping.
             </p>
           </div>

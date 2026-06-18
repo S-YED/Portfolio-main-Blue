@@ -1,7 +1,7 @@
 ---
 publishedDate: 2026-01-19T00:00:00Z
 title: Cloud-Hosted Portfolio Architecture
-description: How I run this site as a small production AWS exercise — S3, CloudFront, ACM, WAF, Route 53, and the WAF bug that taught me the most.
+description: How I run this site as a small production AWS exercise covering S3, CloudFront, ACM, WAF, Route 53, and the WAF bug that taught me the most.
 tags:
   - AWS
   - cloud
@@ -13,7 +13,7 @@ This site could be a free Vercel deploy. I host it on AWS on purpose, because re
 
 The setup: S3 for static hosting, CloudFront as the CDN, ACM for the SSL certificate, WAF in front for security rules, Route 53 for DNS, and billing alarms so a mistake costs me an email instead of a surprise invoice.
 
-The most educational part wasn't the happy path — it was the WAF misconfiguration. I had a rule set that silently blocked legitimate traffic, and the site "worked on my machine" because my IP wasn't matching the rule. Tracing that from symptom (some visitors got 403s) back to cause taught me more about how CloudFront and WAF interact than any tutorial had.
+The most educational part wasn't the happy path. It was the WAF misconfiguration. I had a rule set that silently blocked legitimate traffic, and the site "worked on my machine" because my IP wasn't matching the rule. Tracing that from symptom (some visitors got 403s) back to cause taught me more about how CloudFront and WAF interact than any tutorial had.
 
 Things I now do differently because of this project:
 

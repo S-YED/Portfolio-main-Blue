@@ -28,7 +28,7 @@ import gcpSvg from "@/public/assets/svg/google-cloud.svg";
 import awslambdaSvg from "@/public/assets/svg/awslambda.svg";
 import pythonSvg from "@/public/assets/svg/python.svg";
 
-// Branded SVG cover art (public/assets/projects/covers/) — replaces the
+// Branded SVG cover art (public/assets/projects/covers/) replaces the
 // template screenshots that didn't match these projects.
 const covers = {
   qaForge: "/assets/projects/covers/qa-forge.svg",

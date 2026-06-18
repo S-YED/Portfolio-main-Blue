@@ -21,4 +21,4 @@ The technical part was honestly the easy half. React talking to MySQL through a 
 
 The result: item lookups that used to take minutes of physically checking the ledger became instant, and overall management time dropped by roughly 70%.
 
-The lesson that stuck with me — the best feedback for a developer isn't praise. It's silence. The system quietly became the way things are done, and nobody talks about it anymore. That's what a successful internal tool sounds like.
+The lesson that stuck with me: the best feedback for a developer isn't praise. It's silence. The system quietly became the way things are done, and nobody talks about it anymore. That's what a successful internal tool sounds like.

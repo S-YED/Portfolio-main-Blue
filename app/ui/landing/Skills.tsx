@@ -23,7 +23,7 @@ export function Skills(): JSX.Element {
           <span className="dark:text-accent-dark text-accent">
             Full Stack Development, Cloud & DevOps
           </span>{" "}
-          are my core strengths — I&apos;ve shipped production SaaS backends,
+          are my core strengths. I&apos;ve shipped production SaaS backends,
           designed full CI/CD pipelines, and deployed real AWS & GCP
           infrastructure. I also explore cybersecurity (CTFs), cloud cost
           optimisation, and AI-powered testing.

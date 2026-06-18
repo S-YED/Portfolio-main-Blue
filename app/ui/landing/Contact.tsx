@@ -45,8 +45,8 @@ export function Contact(): JSX.Element {
           I&apos;m always{" "}
           <span className="dark:text-accent-dark text-accent font-semibold">
             open to opportunities
-          </span>{" "}
-          — Full Stack, Backend, Cloud, or DevOps roles. The fastest way to
+          </span>
+          : Full Stack, Backend, Cloud, or DevOps roles. The fastest way to
           reach me:
         </p>
         <div className="contact-links flex flex-row flex-wrap gap-3">

@@ -31,7 +31,7 @@ export function MoreAboutMe(): JSX.Element {
           production deployments sharpened the craft.
         </div>
         <div className="more-about-me-para-2">
-          Outside the editor, I stay active in the tech community —
+          Outside the editor, I stay active in the tech community:
           attending conferences, competing in hackathons, joining cloud
           community events, and pursuing certification tracks. I&apos;m always
           looking for the next technology to master or the next production

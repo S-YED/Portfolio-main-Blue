@@ -58,7 +58,7 @@ export function Hero(): JSX.Element {
   return (
     <section className="hero w-full h-fit flex items-center justify-center flex-col">
       <div
-        className="intro-desc-wrapper relative flex flex-col gap-6 max-w-[75ch] bg-white/90 dark:bg-[#282c33]/80 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-[0_8px_32px_rgba(124,198,248,0.10)]"
+        className="intro-desc-wrapper relative flex flex-col gap-6 w-full max-w-5xl bg-white/60 dark:bg-[#282c33]/60 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-[0_8px_32px_rgba(124,198,248,0.10)]"
         style={{ WebkitBackdropFilter: "blur(12px)" }}
       >
         <motion.div
@@ -133,8 +133,8 @@ export function Hero(): JSX.Element {
           . Currently building{" "}
           <span className="dark:text-accent-dark text-accent font-semibold">
             QA Forge
-          </span>{" "}
-          — an AI-powered automated testing platform.
+          </span>
+          , an AI-powered automated testing platform.
         </motion.p>
         <motion.p
           initial={{ y: 10, opacity: 0 }}

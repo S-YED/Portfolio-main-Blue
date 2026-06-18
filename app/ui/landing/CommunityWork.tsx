@@ -6,7 +6,7 @@ import { SectionHeading } from "@/app/ui/components/SectionHeading";
 const communityRoles: string[] = [
   "Snowflake Squad Member",
   "Google Cloud Arcade Facilitator",
-  "Campus Ambassador — E-Cell IIT Bombay",
+  "Campus Ambassador at E-Cell IIT Bombay",
   "GirlScript Summer of Code 2024 Contributor",
 ];
 
@@ -52,7 +52,7 @@ export function CommunityWork(): JSX.Element {
         </div>
         <div className="conferences flex flex-col gap-2">
           <div className="conferences-intro">
-            Conferences keep me sharp and connected — recently attended:
+            Conferences keep me sharp and connected. Recently attended:
           </div>
           <div className="conference-chips flex flex-row flex-wrap gap-2">
             {conferences.map((conf, index) => (
