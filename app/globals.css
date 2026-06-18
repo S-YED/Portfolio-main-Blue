@@ -1,0 +1,286 @@
+:root {
+  --sky-light: #d6ecff;          /* spring-sky light background             */
+  /* ============================================================
+     BRAND PALETTE - single source of truth (BLUE theme).
+     Edit these values to re-skin the entire site.
+     ============================================================ */
+  --accent: #0f68b0;             /* primary accent (light mode)            */
+  --accent-dark: #7cc6f8;        /* primary accent (dark mode)             */
+  --accent-strong: #0d579a;      /* deeper accent - logo, name, light hover*/
+  --accent-hover-dark: #a8d8fb;  /* dark-mode primary button hover         */
+  --underline-light: #3f93cf;    /* nav link underline (light)             */
+  --underline-dark: #b3def7;     /* nav link underline (dark)              */
+  --gradient-from: #38b6ff;      /* page background gradient origin         */
+  --card-dark-rgb: 30 41 59;     /* card surface (dark)  = #1e293b          */
+  --chip-dark: #1f3a5f;          /* tech-stack chip surface (dark)          */
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Keyboard navigation: visible focus ring on all interactive elements */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #6cb6f5;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-color:  #282c33;
+  clip-path: circle(0% at top right);
+  transition: clip-path 0.4s ease-in-out;
+  pointer-events: none;
+  z-index: -50;
+}
+
+
+/* When dark mode is enabled, expand the circle */
+.dark body::before {
+  clip-path: circle(150% at top right);
+}
+
+/* Your existing body styles */
+body {
+  transition: background-color 0.4s ease-in-out;
+}
+
+
+
+
+/* ------ Markdown ------  */
+
+.markdown {
+  /* General text styling */
+  @apply text-gray-700 dark:text-gray-300;
+  word-wrap: break-word; /* For older browser support */
+  overflow-wrap: anywhere; /* Allows breaking anywhere in the word */
+}
+
+.markdown table {
+  @apply w-full border-collapse overflow-x-auto;
+  border: 1px solid #ddd; /* For table border */
+}
+
+.markdown th,
+.markdown td {
+  @apply px-4 py-2 border text-left text-sm;
+  border-color: rgba(229, 231, 235, 1); /* Light gray border */
+}
+
+.markdown th {
+  @apply bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300;
+  font-weight: bold;
+}
+
+.markdown tr:nth-child(even) {
+  @apply bg-gray-50 dark:bg-gray-800; /* Zebra striping */
+}
+
+.markdown h1 {
+  @apply text-3xl font-bold text-gray-900 dark:text-white;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.markdown h2 {
+  @apply text-2xl font-semibold text-gray-800 dark:text-gray-200;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.markdown h3 {
+  @apply text-xl font-semibold text-gray-700 dark:text-gray-300;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.markdown ul {
+  @apply list-disc pl-5 mt-4;
+}
+
+.markdown ol {
+  @apply list-decimal pl-5 mt-4; /* Ensures numbered lists are styled */
+}
+
+.markdown li {
+  @apply mb-2;
+}
+.markdown b,
+.markdown strong {
+  @apply font-bold text-gray-900 dark:text-white; /* Ensures bold text displays correctly */
+}
+
+.markdown b,
+.markdown strong {
+  @apply font-bold text-gray-900 dark:text-white; /* Ensures bold text displays correctly */
+}
+
+.markdown p {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  /* Adjust as necessary */
+}
+
+.markdown pre {
+  width: fit-content;
+  height: fit-content;
+}
+
+.markdown code {
+  text-wrap: wrap;
+  font-size: medium;
+}
+
+.markdown a {
+  color: blue;
+  @apply underline dark:decoration-yellow-500 decoration-yellow-500 text-blue-800 dark:text-cyan-500;
+}
+
+/* ------ ------ ------ ------ ------  */
+
+/* ------ Cursor Light ------ */
+.cursor-light {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #6cb6f5 50%, #3a3f49 100%);
+  opacity: 0.1;
+  pointer-events: none;
+  /* To ensure that other elements remains unclickable */
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+  filter: blur(35px);
+}
+
+/* ------ ------ ------ ------ ------  */
+
+/* ------  Loader ------  */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(0.7);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes scaleAndRound {
+  0%,
+  100% {
+    border-radius: 15%;
+  }
+
+  50% {
+    border-radius: 30%;
+  }
+}
+
+.boxes-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  animation: rotate 2s linear infinite;
+  gap: 1rem;
+}
+
+.box-rotating {
+  border-radius: 0.5rem;
+  animation: scaleAndRound 2s ease-in-out infinite;
+}
+
+/* ------ ------ ------ ------ ------  */
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ------ Contribution map CSS ------ */
+
+.react-calendar-heatmap text {
+  font-size: 10px;
+  fill: #aaa;
+}
+
+.react-calendar-heatmap .react-calendar-heatmap-small-text {
+  font-size: 5px;
+}
+
+.react-calendar-heatmap rect:hover {
+  stroke: #555;
+  stroke-width: 1px;
+}
+
+/*
+ * Default color scale
+ */
+
+.react-calendar-heatmap .color-empty {
+  @apply fill-gray-200 dark:fill-gray-700;
+}
+
+.react-calendar-heatmap .color-filled {
+  @apply fill-blue-700 dark:fill-blue-500;
+}
+
+.react-calendar-heatmap .color-github-0 {
+  @apply fill-gray-300 dark:fill-gray-700;
+}
+
+.react-calendar-heatmap .color-github-1 {
+  @apply fill-[#5d93db] dark:fill-[#a9d4ff];
+}
+
+.react-calendar-heatmap .color-github-2 {
+  @apply fill-[#5488c8] dark:fill-[#98c4ec];
+}
+
+.react-calendar-heatmap .color-github-3 {
+  @apply fill-[#4b7cb6] dark:fill-[#86b4da];
+}
+
+.react-calendar-heatmap .color-github-4 {
+  @apply fill-[#4270a4] dark:fill-[#75a3c7];
+}
+
+.react-calendar-heatmap .color-github-5 {
+  @apply fill-[#396591] dark:fill-[#6492b5];
+}
+
+.react-calendar-heatmap .color-github-6 {
+  @apply fill-[#2f597f] dark:fill-[#5381a3];
+}
+
+.react-calendar-heatmap .color-github-7 {
+  @apply fill-[#284d6d] dark:fill-[#3b6e8e];
+}
+
+.react-calendar-heatmap .color-github-8 {
+  @apply fill-[#20415b] dark:fill-[#40627f];
+}
+
+.react-calendar-heatmap .color-github-9 {
+  @apply fill-[#183449] dark:fill-[#32546f];
+}
+
+.react-calendar-heatmap .color-github-10 {
+  @apply fill-[#142d49] dark:fill-[#30495e];
+}
+
+/* ------ -------------------- ------ */

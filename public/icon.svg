@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Syed Khaja Moinuddin">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5cc0ff"/>
+      <stop offset="1" stop-color="#1273bf"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#sky)"/>
+  <circle cx="48" cy="17" r="4" fill="#ffa500"/>
+  <ellipse cx="24" cy="49" rx="17" ry="6.5" fill="#ffffff" opacity="0.18"/>
+  <ellipse cx="45" cy="52" rx="12" ry="5" fill="#ffffff" opacity="0.13"/>
+  <path d="M43 23.5 C43 15 23 15 23 24 C23 31.5 43 30.5 43 40 C43 49 23 49 23 41"
+        fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
