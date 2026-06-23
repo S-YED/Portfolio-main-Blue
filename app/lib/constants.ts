@@ -161,7 +161,7 @@ export const projectData: projectDataType[] = [
       "AI-powered automated testing platform with CI/CD pipeline integration. Automates test case generation, coverage analysis, and regression path suggestions. MVP 1 shipped; MVP 2 in progress.",
     image: covers.qaForge,
     techStack: ["AI", "CI/CD", "Test Automation", "Next.js", "TypeScript"],
-    github: "https://github.com/S-YED/QA-Forge",
+    github: "https://qa-forge-gamma.vercel.app/landing",
     date: new Date("2026-04-01"),
   },
   {
@@ -170,7 +170,7 @@ export const projectData: projectDataType[] = [
       "Production-style AWS static website architecture: S3 for hosting, CloudFront CDN, ACM SSL/TLS, WAF for security, Route 53 DNS, and billing alarms. Resolved real WAF misconfiguration issues.",
     image: covers.cloudPortfolio,
     techStack: ["AWS S3", "CloudFront", "ACM", "WAF", "Route 53", "DNS"],
-    github: "https://github.com/S-YED",
+    github: "https://github.com/S-YED/Portfolio-main-Blue",
     deployedLink: "https://syedkm.com",
     date: new Date("2026-01-01"),
   },
@@ -180,7 +180,7 @@ export const projectData: projectDataType[] = [
       "Full-stack web inventory management system at Government Engineering College Ramanagara. Replaced a manual ledger, reducing management time by ~70%. React frontend, MySQL backend, admin dashboard.",
     image: covers.gecrStore,
     techStack: ["React", "MySQL", "Authentication", "Admin Dashboard"],
-    github: "https://github.com/S-YED",
+    github: "https://github.com/S-YED/GECR-STORE",
     date: new Date("2024-09-01"),
   },
   {
@@ -199,7 +199,7 @@ export const projectData: projectDataType[] = [
       "AI-powered facial health analyzer app using Google Gemini API. Analyses facial photos to detect skin indicators and delivers personalised daily skincare suggestions with live demo.",
     image: covers.visageHealth,
     techStack: ["Google Gemini API", "Firebase", "FlutterFlow", "AI"],
-    github: "https://github.com/S-YED",
+    github: "https://github.com/S-YED/Visage-Health",
     date: new Date("2024-06-01"),
   },
   {
@@ -208,7 +208,7 @@ export const projectData: projectDataType[] = [
       "Python serverless application deployed on AWS Lambda with S3 integration using StackGen Infrastructure-as-Code at DevInfraGuruDays. Real-world serverless deployment patterns.",
     image: covers.lambdaApp,
     techStack: ["Python", "AWS Lambda", "S3", "StackGen IaC", "Serverless"],
-    github: "https://github.com/S-YED",
+    github: "https://github.com/S-YED/hello-kitty",
     date: new Date("2024-10-01"),
   },
 ];
