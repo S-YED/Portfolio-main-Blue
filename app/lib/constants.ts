@@ -28,13 +28,14 @@ import gcpSvg from "@/public/assets/svg/google-cloud.svg";
 import awslambdaSvg from "@/public/assets/svg/awslambda.svg";
 import pythonSvg from "@/public/assets/svg/python.svg";
 
-// Branded SVG cover art (public/assets/projects/covers/) replaces the
-// template screenshots that didn't match these projects.
+// Real product screenshots (public/assets/projects/screenshots/) for the
+// shipped projects; branded SVG cover art (public/assets/projects/covers/)
+// for the remaining ones that don't have a captured screenshot yet.
 const covers = {
-  qaForge: "/assets/projects/covers/qa-forge.svg",
-  cloudPortfolio: "/assets/projects/covers/cloud-portfolio.svg",
-  gecrStore: "/assets/projects/covers/gecr-store.svg",
-  embellDecor: "/assets/projects/covers/embell-decor.svg",
+  qaForge: "/assets/projects/screenshots/qa-forge.png",
+  cloudPortfolio: "/assets/projects/screenshots/cloud-portfolio.png",
+  gecrStore: "/assets/projects/screenshots/gecr-store.png",
+  embellDecor: "/assets/projects/screenshots/embell-decor.png",
   visageHealth: "/assets/projects/covers/visage-health.svg",
   lambdaApp: "/assets/projects/covers/lambda-app.svg",
 };
