@@ -68,7 +68,7 @@ export async function generateMetadata({
       title: blogData.title, // Twitter title
       description: blogData.description, // Twitter description
       images: [ogImageURL], // Dynamic image for Twitter
-      creator: "@S_YED_dev", // Twitter handle of the creator
+      creator: "@skm_ahmed1", // Twitter handle of the creator
       site: `${process.env.SITE_URL}/blog/${params.slug}`,
     },
   };

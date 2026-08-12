@@ -23,7 +23,7 @@ export function Footer(): JSX.Element {
     {
       name: "twitter",
       icon: FaXTwitter,
-      link: "https://x.com/S_YED_dev",
+      link: "https://x.com/skm_ahmed1",
       className: "dark:text-neutral-300 text-neutral-800",
     },
     {

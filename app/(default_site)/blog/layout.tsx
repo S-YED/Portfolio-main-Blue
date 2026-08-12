@@ -30,7 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: `Blogs - ${siteName}`, // Twitter title
       description: blogDescription, // Twitter description
       images: [metaDataImg.src], // Image for Twitter
-      creator: "@S_YED_dev", // Twitter handle of the content creator
+      creator: "@skm_ahmed1", // Twitter handle of the content creator
       site: `${siteUrl}/blog`,
     },
   };

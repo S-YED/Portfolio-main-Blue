@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Syed Khaja Moinuddin | Portfolio",
     description:
       "Portfolio of Syed Khaja Moinuddin - Full Stack Developer, Cloud & DevOps enthusiast based in Bengaluru, India.",
-    creator: "@S_YED_dev",
+    creator: "@skm_ahmed1",
     site: siteName,
     images: metaDataImg.src,
   },
