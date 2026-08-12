@@ -51,7 +51,7 @@ export function Skills(): JSX.Element {
                 {skillData.skills.map((skill, index2) => (
                   <motion.div
                     key={index2}
-                    className="skill relative flex items-center w-fit h-fit justify-center group mb-2"
+                    className="skill relative flex flex-col items-center w-[72px] sm:w-fit h-fit justify-start group mb-2"
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{
@@ -61,17 +61,37 @@ export function Skills(): JSX.Element {
                     }}
                     viewport={{ once: true }}
                   >
+                    {/* Icons are decorative: the label below is the accessible
+                        name for every skill. The react-icons entries render as
+                        bare SVGs with no name of their own, so relying on the
+                        icon would leave half the list unannounced. */}
                     {typeof skill.icon === "string" ? (
                       <Image
                         src={skill.icon}
-                        alt={skill.name}
+                        alt=""
+                        aria-hidden="true"
                         className="dark:text-white text-neutral-900 w-[48px] h-[48px] scale-90"
                       />
                     ) : (
-                      <skill.icon className="dark:text-white text-neutral-900 w-[48px] h-[48px] scale-90" />
+                      <skill.icon
+                        aria-hidden="true"
+                        className="dark:text-white text-neutral-900 w-[48px] h-[48px] scale-90"
+                      />
                     )}
 
-                    <div className="placeholder w-auto whitespace-nowrap h-fit absolute -top-7 opacity-0 group-hover:opacity-100 flex transition-all transform flex-col items-center justify-center duration-300">
+                    {/* Touch devices have no hover, so the tooltip below is
+                        unreachable on mobile. Show the name as a plain label
+                        there instead. From sm: up it goes sr-only rather than
+                        hidden, so it stays the accessible name at every width
+                        while the hover tooltip handles the visuals. */}
+                    <span className="skill-label sm:sr-only text-center text-[0.6rem] leading-tight text-neutral-700 dark:text-neutral-300 mt-1">
+                      {skill.name}
+                    </span>
+
+                    <div
+                      aria-hidden="true"
+                      className="placeholder w-auto whitespace-nowrap h-fit absolute -top-7 opacity-0 group-hover:opacity-100 hidden sm:flex transition-all transform flex-col items-center justify-center duration-300"
+                    >
                       <div className="content-holder relative w-fit h-fit flex flex-col items-center justify-center">
                         <span className="dark:bg-neutral-700 bg-neutral-300 text-neutral-900 dark:text-neutral-300 rounded-md text-nowrap w-fit h-fit py-1 px-2 text-xs">
                           {skill.name}

@@ -5,8 +5,16 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { ReactTyped } from "react-typed";
 import { motion, useReducedMotion } from "framer-motion";
-import { FiGithub, FiMail, FiFileText } from "react-icons/fi";
 import Link from "next/link";
+import { Prose } from "@/app/ui/components/Prose";
+import {
+  availability,
+  heroCtaLinks,
+  heroGreeting,
+  heroIntro,
+  heroName,
+  heroSecondary,
+} from "@/app/lib/constants";
 
 export function Hero(): JSX.Element {
   const [isRendered, setIsRendered] = useState<boolean>(false);
@@ -31,30 +39,6 @@ export function Hero(): JSX.Element {
     };
   }, []);
 
-  const ctaLinks = [
-    {
-      name: "View Resume",
-      href: "/Syed_Khaja_Moinuddin_Resume.pdf",
-      icon: FiFileText,
-      primary: true,
-      external: true,
-    },
-    {
-      name: "Email Me",
-      href: "mailto:skm.exec@gmail.com",
-      icon: FiMail,
-      primary: false,
-      external: false,
-    },
-    {
-      name: "GitHub",
-      href: "https://github.com/S-YED",
-      icon: FiGithub,
-      primary: false,
-      external: true,
-    },
-  ];
-
   return (
     <section className="hero w-full h-fit flex items-center justify-center flex-col">
       <div
@@ -67,11 +51,20 @@ export function Hero(): JSX.Element {
           transition={{ duration: 0.5 }}
           className="introduction-heading relative z-10 flex flex-col gap-1 w-fit h-fit"
         >
+          {availability && (
+            <div className="availability w-fit h-fit mb-1 flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 font-mono text-xs sm:text-sm text-emerald-800 dark:text-emerald-300">
+              <span
+                className="h-2 w-2 rounded-full bg-emerald-500"
+                aria-hidden="true"
+              />
+              {availability}
+            </div>
+          )}
           <p
             className="heading-or-loading text-neutral-900 dark:text-neutral-100 text-2xl sm:text-3xl font-mono tracking-tight"
             style={{ textShadow: "none" }}
           >
-            Hey there!
+            {heroGreeting}
           </p>
           <h1
             className="relative name-intro-or-loading text-white w-fit h-fit dark:text-white text-3xl sm:text-4xl font-mono font-normal"
@@ -81,10 +74,10 @@ export function Hero(): JSX.Element {
               I&apos;m{" "}
               <span className="dark:text-accent-dark text-accent-strong">
                 {reduceMotion ? (
-                  "Syed Khaja Moinuddin"
+                  heroName
                 ) : (
                   <ReactTyped
-                    strings={["Syed Khaja Moinuddin"]}
+                    strings={[heroName]}
                     startDelay={200}
                     typeSpeed={60}
                     showCursor={true}
@@ -113,28 +106,10 @@ export function Hero(): JSX.Element {
           transition={{ delay: 0.15, duration: 0.5 }}
           className="my-description relative z-10 font-mono dark:text-white text-base text-neutral-900 sm:text-lg w-fit h-fit text-pretty"
         >
-          <span className="w-fit h-fit">
-            <span className="dark:text-accent-dark text-accent font-semibold">
-              Full Stack Developer
-            </span>
-          </span>{" "}
-          with hands-on experience building and shipping{" "}
-          <span className="dark:text-accent-dark text-accent font-semibold">
-            production SaaS backends
-          </span>
-          , designing{" "}
-          <span className="dark:text-accent-dark text-accent font-semibold">
-            CI/CD pipelines
-          </span>
-          , and deploying real cloud infrastructure on{" "}
-          <span className="dark:text-accent-dark text-accent font-semibold">
-            AWS & GCP
-          </span>
-          . Currently building{" "}
-          <span className="dark:text-accent-dark text-accent font-semibold">
-            QA Forge
-          </span>
-          , an AI-powered automated testing platform.
+          <Prose
+            segments={heroIntro}
+            accentClassName="dark:text-accent-dark text-accent font-semibold"
+          />
         </motion.p>
         <motion.p
           initial={{ y: 10, opacity: 0 }}
@@ -142,15 +117,10 @@ export function Hero(): JSX.Element {
           transition={{ delay: 0.25, duration: 0.5 }}
           className="more-about-me text-sm sm:text-base font-mono dark:text-white text-neutral-900 w-fit h-fit text-pretty"
         >
-          Outside the editor, I stay connected with the industry through{" "}
-          <span className="dark:text-accent-dark text-accent font-semibold">
-            conferences
-          </span>{" "}
-          like KubeCon, AWS Summit, and Google I/O. I actively pursue{" "}
-          <span className="dark:text-accent-dark text-accent font-semibold">
-            cloud certifications
-          </span>{" "}
-          and compete in hackathons.
+          <Prose
+            segments={heroSecondary}
+            accentClassName="dark:text-accent-dark text-accent font-semibold"
+          />
         </motion.p>
         <motion.div
           initial={{ y: 10, opacity: 0 }}
@@ -158,7 +128,7 @@ export function Hero(): JSX.Element {
           transition={{ delay: 0.35, duration: 0.5 }}
           className="cta-row relative z-10 flex flex-row flex-wrap gap-3 font-mono"
         >
-          {ctaLinks.map((cta) => (
+          {heroCtaLinks.map((cta) => (
             <Link
               key={cta.name}
               href={cta.href}

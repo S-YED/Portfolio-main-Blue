@@ -2,24 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/app/ui/components/SectionHeading";
-
-const communityRoles: string[] = [
-  "Snowflake Squad Member",
-  "Google Cloud Arcade Facilitator",
-  "Campus Ambassador at E-Cell IIT Bombay",
-  "GirlScript Summer of Code 2024 Contributor",
-];
-
-const conferences: string[] = [
-  "KubeCon + CloudNativeCon India 2024",
-  "AWS Summit Bengaluru 2025",
-  "Google I/O Connect India 2025",
-  "Datadog Live Bengaluru 2025",
-  "ServiceNow CreatorCon 2024 & 2025",
-  "Redis R:Released Bengaluru",
-  "GitHub Constellation Bengaluru 2024",
-  "Snowflake Northstar Conference",
-];
+import { communityRoles, conferences } from "@/app/lib/constants";
 
 export function CommunityWork(): JSX.Element {
   return (

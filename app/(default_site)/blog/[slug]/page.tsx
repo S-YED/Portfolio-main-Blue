@@ -1,6 +1,9 @@
 // Import necessary modules and components
 import { Metadata } from "next"; // Metadata type for Next.js dynamic metadata
-import { getBlogPostData } from "@/app/utils/getBlogData"; // Utility function to fetch blog post data
+import {
+  getBlogPostData,
+  getBlogPostMetadata,
+} from "@/app/utils/getBlogData"; // Utility functions to fetch blog post data
 import { formatDate } from "@/app/utils/dateFormatter"; // Utility function to format the date
 import Markdown from "markdown-to-jsx"; // Markdown component to render blog content as JSX
 import Image from "next/image"; // Next.js Image component for optimized image rendering
@@ -27,6 +30,11 @@ type SharingLinkConfigProps = {
   className: string;
 }[];
 
+// Pre-render every post at build time instead of rendering per request.
+export function generateStaticParams(): { slug: string }[] {
+  return getBlogPostMetadata("blogs").map((post) => ({ slug: post.slug }));
+}
+
 // Asynchronously generate metadata for the blog page using the slug from the params
 export async function generateMetadata({
   params,
@@ -34,8 +42,10 @@ export async function generateMetadata({
   const blogData = getBlogPostData("blogs", params.slug); // Fetch blog data based on slug
   const siteUrl = process.env.SITE_URL ?? "https://syedkm.com";
 
-  // Construct a dynamic OpenGraph image URL based on environment variables
-  const ogImageURL = `${siteUrl}` + blogData.image;
+  // Construct a dynamic OpenGraph image URL based on environment variables.
+  // Must be the PNG: every social crawler rejects SVG, which left share cards
+  // blank on all six posts.
+  const ogImageURL = `${siteUrl}` + blogData.ogImage;
 
   // Return the metadata object, including OpenGraph and Twitter details
   return {
