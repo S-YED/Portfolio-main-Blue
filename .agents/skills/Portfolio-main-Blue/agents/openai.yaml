@@ -1,0 +1,6 @@
+interface:
+  display_name: "Portfolio Main Blue"
+  short_description: "Repo-specific patterns and workflows for Portfolio-main-Blue"
+  default_prompt: "Use the Portfolio-main-Blue repo skill to follow existing architecture, testing, and workflow conventions."
+policy:
+  allow_implicit_invocation: true
