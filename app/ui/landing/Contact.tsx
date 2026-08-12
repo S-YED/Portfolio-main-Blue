@@ -2,33 +2,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { FiMail, FiFileText } from "react-icons/fi";
-import { FaLinkedin } from "react-icons/fa6";
 import { SectionHeading } from "@/app/ui/components/SectionHeading";
-
-const contactLinks = [
-  {
-    name: "skm.exec@gmail.com",
-    href: "mailto:skm.exec@gmail.com",
-    icon: FiMail,
-    primary: true,
-    external: false,
-  },
-  {
-    name: "LinkedIn",
-    href: "https://linkedin.com/in/s-yed",
-    icon: FaLinkedin,
-    primary: false,
-    external: true,
-  },
-  {
-    name: "Resume",
-    href: "/Syed_Khaja_Moinuddin_Resume.pdf",
-    icon: FiFileText,
-    primary: false,
-    external: true,
-  },
-];
+import { contactLinks } from "@/app/lib/constants";
 
 export function Contact(): JSX.Element {
   return (

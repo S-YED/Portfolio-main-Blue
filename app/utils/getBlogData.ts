@@ -27,6 +27,10 @@ export function getBlogPostMetadata(folderPath: string) {
         description: matterResult.data.description,
         tags: matterResult.data.tags,
         image: `/blogs/${folderName}/images/header.svg`, // Image path relative to the public folder
+        // Social crawlers (X, LinkedIn, WhatsApp, Slack, Facebook) refuse SVG,
+        // so share cards need the rasterised copy. Regenerate with sharp when
+        // a header.svg changes.
+        ogImage: `/blogs/${folderName}/images/header.png`,
         slug: folderName, // Folder name as the slug
       };
     });
@@ -60,6 +64,8 @@ export function getBlogPostData(folderPath: string, slug: string) {
       description: matterResult.data.description,
       tags: matterResult.data.tags,
       image: `/blogs/${slug}/images/header.svg`, // Image path relative to the public folder
+      // PNG twin for OG/Twitter cards - see getBlogPostMetadata.
+      ogImage: `/blogs/${slug}/images/header.png`,
       content: matterResult.content,
       slug: slug, // Folder name as the slug
     };

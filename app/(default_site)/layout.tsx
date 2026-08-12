@@ -37,7 +37,8 @@ export const metadata: Metadata = {
     images: metaDataImg.src,
   },
   twitter: {
-    card: "summary",
+    // landing.png is 1200x630, so the large card is the right variant.
+    card: "summary_large_image",
     title: "Syed Khaja Moinuddin | Portfolio",
     description:
       "Portfolio of Syed Khaja Moinuddin - Full Stack Developer, Cloud & DevOps enthusiast based in Bengaluru, India.",

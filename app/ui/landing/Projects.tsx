@@ -138,9 +138,44 @@ function ProjectCard({
     setIsLoading(false);
   };
 
-  // The cover image links to the live deployment when one exists,
-  // otherwise to the repository.
+  // The cover image links to the live deployment when one exists, otherwise to
+  // the repository. Internal work (Fumi, the automation framework) has neither,
+  // so the cover stays a plain image rather than a dead link.
   const primaryLink = deployedLink ?? github;
+
+  const cover = (
+    <div className="image group relative w-full h-[200px] overflow-hidden rounded-t-xl border-[#dbd5d5] dark:border-[#484a50] flex items-center justify-center border-2">
+      {/* Show gif if available, fallback to image if gif fails or is slow to load */}
+      {gif && !gifError ? (
+        <Image
+          src={gif}
+          unoptimized={true}
+          loading="lazy"
+          alt={`${name} preview`}
+          width={340}
+          height={200}
+          className="relative rounded-t-xl pointer-events-none z-10 group-hover:scale-105 duration-500 object-cover w-full h-full"
+          onError={handleGifError}
+          onLoad={handleGifLoad}
+        />
+      ) : (
+        <Image
+          src={image}
+          loading="lazy"
+          alt={`${name} cover`}
+          width={340}
+          height={200}
+          className="relative rounded-t-xl pointer-events-none z-10 group-hover:scale-105 duration-500 object-cover w-full h-full"
+        />
+      )}
+      {/* Optional loading indicator */}
+      {gif && isLoading && !gifError && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-100/50 dark:bg-gray-800/50 z-20">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 dark:border-white"></div>
+        </div>
+      )}
+    </div>
+  );
 
   // Format date to display only month and year
   const formattedDate = date
@@ -212,45 +247,19 @@ function ProjectCard({
         className="project-card max-w-[340px] h-full rounded-xl flex flex-col overflow-hidden shadow-2xl dark:shadow-[0_35px_60px_-15px_rgba(255,255,255,0.1)] duration-700"
       >
         <div className="relative image-box w-full h-fit">
-          <Link
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full h-fit"
-            href={primaryLink}
-            aria-label={`${name}, ${deployedLink ? "open live site" : "open repository"}`}
-          >
-            <div className="image group relative w-full h-[200px] overflow-hidden rounded-t-xl border-[#dbd5d5] dark:border-[#484a50] flex items-center justify-center border-2">
-              {/* Show gif if available, fallback to image if gif fails or is slow to load */}
-              {gif && !gifError ? (
-                <Image
-                  src={gif}
-                  unoptimized={true}
-                  loading="lazy"
-                  alt={`${name} preview`}
-                  width={340}
-                  height={200}
-                  className="relative rounded-t-xl pointer-events-none z-10 group-hover:scale-105 duration-500 object-cover w-full h-full"
-                  onError={handleGifError}
-                  onLoad={handleGifLoad}
-                />
-              ) : (
-                <Image
-                  src={image}
-                  loading="lazy"
-                  alt={`${name} cover`}
-                  width={340}
-                  height={200}
-                  className="relative rounded-t-xl pointer-events-none z-10 group-hover:scale-105 duration-500 object-cover w-full h-full"
-                />
-              )}
-              {/* Optional loading indicator */}
-              {gif && isLoading && !gifError && (
-                <div className="absolute inset-0 flex items-center justify-center bg-gray-100/50 dark:bg-gray-800/50 z-20">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 dark:border-white"></div>
-                </div>
-              )}
-            </div>
-          </Link>
+          {primaryLink ? (
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full h-fit"
+              href={primaryLink}
+              aria-label={`${name}, ${deployedLink ? "open live site" : "open repository"}`}
+            >
+              {cover}
+            </Link>
+          ) : (
+            cover
+          )}
         </div>
         <div className="all-contents flex flex-col flex-1 w-full h-fit py-5 px-4 dark:bg-card-surface bg-white items-start gap-4">
           <div className="name-links-description w-full h-fit flex flex-col justify-between gap-2">
@@ -259,15 +268,17 @@ function ProjectCard({
                 {name}
               </h3>
               <div className="links w-fit h-fit flex flex-row gap-2 items-center">
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={github}
-                  className="w-fit h-fit"
-                  aria-label={`${name} on GitHub`}
-                >
-                  <FiGithub className="dark:text-white text-neutral-900 text-base sm:text-lg" />
-                </Link>
+                {github && (
+                  <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={github}
+                    className="w-fit h-fit"
+                    aria-label={`${name} on GitHub`}
+                  >
+                    <FiGithub className="dark:text-white text-neutral-900 text-base sm:text-lg" />
+                  </Link>
+                )}
                 {deployedLink && (
                   <Link
                     target="_blank"

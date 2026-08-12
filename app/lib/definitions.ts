@@ -45,7 +45,8 @@ export type projectDataType = {
   image: StaticImageData | string;
   gif?: StaticImageData;
   techStack: string[];
-  github: string;
+  // Optional: client work (e.g. Embell Decor) has a live site but no public repo.
+  github?: string;
   deployedLink?: string;
   date?: Date;
 };
@@ -53,6 +54,45 @@ export type projectDataType = {
 export type botProjectDataTypes = {
   name: string;
   link: string;
+};
+
+// -------------------------------------------------------
+// ---------------- Prose ---------------------------
+
+// Site copy that mixes plain and accent-coloured runs. Stored as segments so
+// the text lives in this file instead of being welded into JSX, and so we
+// never need dangerouslySetInnerHTML to colour a phrase mid-sentence.
+export type TextSegment = {
+  text: string;
+  accent?: boolean;
+  href?: string;
+};
+
+export type RichText = TextSegment[];
+
+// -------------------------------------------------------
+// ---------------- Experience ---------------------------
+
+export type ExperienceEntry = {
+  role: string;
+  company: string;
+  location: string;
+  period: string;
+  // Renders a "Current" badge. Also the honest answer to "are they employed now".
+  current?: boolean;
+  highlights: string[];
+};
+
+// -------------------------------------------------------
+// ---------------- Call-to-action links -------------------
+
+// Shared by the Hero CTA row and the Contact section.
+export type CtaLink = {
+  name: string;
+  href: string;
+  icon: IconType;
+  primary?: boolean;
+  external?: boolean;
 };
 
 // -------------------------------------------------------

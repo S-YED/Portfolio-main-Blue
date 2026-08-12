@@ -2,45 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/app/ui/components/SectionHeading";
-
-const experienceData = [
-  {
-    role: "Full Stack Backend Intern",
-    company: "Parentof Solutions Pvt Ltd",
-    location: "Bengaluru",
-    period: "Jan 2026 - May 2026",
-    highlights: [
-      "Designed & documented the company's full GitFlow CI/CD branching strategy (main / develop / feature / release / hotfix), adopted by the engineering team.",
-      "Worked on attentionhero.com, a live SaaS platform (Next.js / MongoDB / Vercel) serving real users with continuous feature deployments.",
-      "Gained GCP exposure working with AI recording & game-backend services running on Google Cloud Platform production servers.",
-      "Conducted PR code reviews, identifying logic issues and edge cases before merge.",
-      "Owned comprehensive testing coverage: 200+ test cases (functional, regression, smoke, integration) across 10+ browser/device combos via BrowserStack.",
-      "Tracked 50+ defects with severity, priority, and reproduction steps across releases v2.0 to v2.4+.",
-      "Managed daily smoke testing (AM & PM), QA sign-off for production releases, and structured release documentation for stakeholders.",
-    ],
-  },
-  {
-    role: "Java Full Stack Training Program",
-    company: "Dhee Coding Lab",
-    location: "Bengaluru",
-    period: "Feb 2025 - May 2025",
-    highlights: [
-      "Built full-stack Java applications with MySQL database integration using JDBC, Hibernate, and JPA.",
-      "Studied Core Java (OOP, multi-threading, exception handling, garbage collection) and Advanced Java stack (JSP).",
-      "Designed and queried MySQL databases integrated with backend web modules.",
-    ],
-  },
-  {
-    role: "Collaborative Web Development Project",
-    company: "Tekkybench",
-    location: "Bengaluru",
-    period: "Oct 2023 - Nov 2023",
-    highlights: [
-      "Developed a crowdfunding web platform prototype in a 3-person collaborative team.",
-      "Received Letter of Recommendation for delivery quality and collaboration.",
-    ],
-  },
-];
+import { experienceData } from "@/app/lib/constants";
 
 export function Experience(): JSX.Element {
   return (
@@ -70,8 +32,13 @@ export function Experience(): JSX.Element {
                   {exp.company} - {exp.location}
                 </div>
               </div>
-              <div className="period text-xs sm:text-sm dark:text-neutral-400 text-neutral-500 italic">
-                {exp.period}
+              <div className="period flex items-center gap-2 text-xs sm:text-sm dark:text-neutral-400 text-neutral-500 italic">
+                {exp.current && (
+                  <span className="current-badge not-italic rounded-full px-2 py-0.5 text-[0.65rem] sm:text-xs font-semibold bg-accent/15 text-accent-strong dark:bg-accent-dark/20 dark:text-accent-dark">
+                    Current
+                  </span>
+                )}
+                <span>{exp.period}</span>
               </div>
             </div>
             <ul className="highlights list-none flex flex-col gap-1.5">
