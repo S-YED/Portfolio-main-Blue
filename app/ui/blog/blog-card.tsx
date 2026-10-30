@@ -13,7 +13,7 @@ export function BlogCard({ cardData }: BlogPostMetaDataProps): JSX.Element {
       <div className="relative image-container w-fit h-fit rounded-md group overflow-hidden">
         {/* Link to the blog post with an image */}
         <Link
-          href={`/blog/${cardData.slug}`}
+          href={`/work/notes/${cardData.slug}`}
           className="w-fit h-fit rounded-md group"
         >
           <Image
@@ -38,7 +38,7 @@ export function BlogCard({ cardData }: BlogPostMetaDataProps): JSX.Element {
           </div>
           {/* Container for title and description */}
           <div className="title-and-description flex flex-col text-wrap gap-1 w-fit h-fit">
-            <Link href={`/blog/${cardData.slug}`}>
+            <Link href={`/work/notes/${cardData.slug}`}>
               <div className="title font-bold text-neutral-800 dark:text-neutral-200 text-xl sm:text-2xl duration-200 hover:text-blue-700 dark:hover:text-blue-300">
                 {cardData.title} {/* Blog post title */}
               </div>

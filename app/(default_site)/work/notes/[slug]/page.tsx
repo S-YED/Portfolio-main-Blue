@@ -50,17 +50,17 @@ export async function generateMetadata({
   // Return the metadata object, including OpenGraph and Twitter details
   return {
     metadataBase: new URL(siteUrl), // Base URL for metadata
-    title: `${blogData.title} - Blogs`, // Dynamic title for SEO
+    title: `${blogData.title} - Notes`, // Dynamic title for SEO
     description: blogData.description, // Blog description for SEO
     keywords: blogData.tags, // Relevant keywords
     robots: "index, follow", // Instructions for search engine indexing
     openGraph: {
-      title: `${blogData.title} - Blogs`, // OpenGraph title
+      title: `${blogData.title} - Notes`, // OpenGraph title
       description: blogData.description, // OpenGraph description
-      url: `${process.env.SITE_URL}/blog/${params.slug}`, // Dynamic URL for the blog post
+      url: `${process.env.SITE_URL}/work/notes/${params.slug}`, // Dynamic URL for the blog post
       images: [ogImageURL], // Dynamic image for OpenGraph
       type: "article", // OpenGraph type
-      siteName: `Syed Blogs`, // Site name for OpenGraph
+      siteName: `syedkm.com`, // Site name for OpenGraph
       locale: "en_US", // Locale for OpenGraph
     },
     twitter: {
@@ -69,14 +69,14 @@ export async function generateMetadata({
       description: blogData.description, // Twitter description
       images: [ogImageURL], // Dynamic image for Twitter
       creator: "@skm_ahmed1", // Twitter handle of the creator
-      site: `${process.env.SITE_URL}/blog/${params.slug}`,
+      site: `${process.env.SITE_URL}/work/notes/${params.slug}`,
     },
   };
 }
 
 // Blog page component that renders the blog post content and sharing links
 export default function BlogsPage({ params }: BlogPageProps): JSX.Element {
-  const pageURL = process.env.SITE_URL + `/blog/${params.slug}`; // Construct page URL for sharing
+  const pageURL = process.env.SITE_URL + `/work/notes/${params.slug}`; // Construct page URL for sharing
   const blogData = getBlogPostData("blogs", params.slug); // Fetch blog post data
 
   // Calculate the total number of words and reading time
@@ -217,12 +217,12 @@ export default function BlogsPage({ params }: BlogPageProps): JSX.Element {
             <div className="back-button w-fit mt-6">
               <button className="w-fit h-fit hover:bg-neutral-200 dark:hover:bg-neutral-700 px-3 py-3 duration-300 rounded-3xl group">
                 <Link
-                  href={"/blog"} // Link to navigate back to the blog list
+                  href={"/work"} // Back to the Work page (case studies and notes)
                   className="flex flex-row w-fit h-fit items-center gap-1 group"
                 >
                   <IoChevronBack className="text-neutral-700 hover:text-neutral-800 dark:text-neutral-300  dark:hover:text-neutral-200 group-hover:-translate-x-1 duration-300" />
                   <span className="text-neutral-700 hover:text-neutral-800 dark:text-neutral-300 dark:hover:text-neutral-200 w-fit h-fit duration-300 ">
-                    Back to blog {/* Button text */}
+                    Back to work {/* Button text */}
                   </span>
                 </Link>
               </button>

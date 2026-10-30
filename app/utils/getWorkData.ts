@@ -23,6 +23,7 @@ const ROOT = path.join(process.cwd(), "public", "work");
 const showDrafts = process.env.VERCEL_ENV !== "production";
 
 function read(slug: string): WorkCase | null {
+  if (slug === "notes") return null; // reserved: /work/notes/<slug> holds the notes (former blog)
   const file = path.join(ROOT, slug, "content", "content.md");
   if (!fs.existsSync(file)) return null;
   const { data, content } = matter(fs.readFileSync(file, "utf8"));

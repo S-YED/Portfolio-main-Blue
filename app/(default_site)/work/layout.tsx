@@ -4,22 +4,22 @@ import metaDataImg from "@/public/assets/metadata/blog.png"; // Import image for
 const siteUrl = process.env.SITE_URL ?? "https://syedkm.com";
 const siteName = process.env.SITE_NAME ?? "syedkm.com";
 
-const blogDescription =
-  "Notes from real work: QA, cloud infrastructure, and lessons learned by shipping.";
+const workDescription =
+  "Case studies and notes from real work: QA, test automation, cloud, and lessons learned by shipping.";
 
-// Generate the metadata for the blogs page
+// Metadata for /work: case studies plus notes (the former blog, merged 2026-10-30)
 export async function generateMetadata(): Promise<Metadata> {
   // Construct metadata object
   return {
     metadataBase: new URL(siteUrl), // Base URL for metadata
-    title: `Blogs - ${siteName}`, // Dynamic title for SEO
-    description: blogDescription, // Description for SEO
-    keywords: ["blog", "QA", "testing", "cloud", "DevOps", "engineering"], // Keywords for SEO
+    title: `Work - ${siteName}`, // Dynamic title for SEO
+    description: workDescription, // Description for SEO
+    keywords: ["case study", "QA", "SDET", "test automation", "cloud", "engineering"], // Keywords for SEO
     robots: "index, follow", // Instructions for search engine indexing
     openGraph: {
-      title: `Blogs - ${siteName}`, // OpenGraph title
-      description: blogDescription, // OpenGraph description
-      url: `${siteUrl}/blog`, // URL for OpenGraph
+      title: `Work - ${siteName}`, // OpenGraph title
+      description: workDescription, // OpenGraph description
+      url: `${siteUrl}/work`, // URL for OpenGraph
       images: [metaDataImg.src], // Image for OpenGraph
       type: "article", // OpenGraph type
       siteName: siteName, // Site name for OpenGraph
@@ -27,16 +27,16 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary", // Twitter card type
-      title: `Blogs - ${siteName}`, // Twitter title
-      description: blogDescription, // Twitter description
+      title: `Work - ${siteName}`, // Twitter title
+      description: workDescription, // Twitter description
       images: [metaDataImg.src], // Image for Twitter
       creator: "@skm_ahmed1", // Twitter handle of the content creator
-      site: `${siteUrl}/blog`,
+      site: `${siteUrl}/work`,
     },
   };
 }
 
-// Layout component that wraps the blog page contents
+// Layout that wraps every /work page
 export default function Layout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {

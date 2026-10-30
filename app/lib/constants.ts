@@ -391,9 +391,9 @@ export const aboutMeParagraphs: RichText[] = [
   ],
   [
     {
-      text: "Outside the editor, I stay active in the tech community: attending conferences, competing in hackathons, joining cloud community events, and pursuing certification tracks. I'm always looking for the next technology to master or the next production challenge to solve. I also keep notes and updates on the ",
+      text: "Outside the editor, I stay active in the tech community: attending conferences, competing in hackathons, joining cloud community events, and pursuing certification tracks. I'm always looking for the next technology to master or the next production challenge to solve. I also keep case studies and notes on my ",
     },
-    { text: "blogs", accent: true, href: "/blog" },
+    { text: "work page", accent: true, href: "/work" },
     { text: "." },
   ],
 ];
