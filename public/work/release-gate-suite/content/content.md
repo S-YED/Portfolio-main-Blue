@@ -5,7 +5,7 @@ role: "Sole QA, design and build"
 period: "2026"
 stack: ["Playwright", "GitHub Actions", "TypeScript"]
 order: 1
-status: draft
+status: published
 ---
 
 ## The problem
