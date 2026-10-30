@@ -1,0 +1,24 @@
+# Every merge to main deploys straight to syedkm.com (Vercel), so each pull request
+# must build first. Vercel also posts a preview link on the PR; draft case studies
+# (public/work/*, status: draft) appear only there, never on the live site.
+name: Build check
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
