@@ -2,8 +2,8 @@ const fs = require("fs");
 const path = require("path");
 
 // next-sitemap only discovers routes it can see in the build manifest, and
-// /blog/[slug] is driven by folders under public/blogs. Without this, the
-// sitemap ships with just "/" and "/blog" and no post is ever listed.
+// /work/notes/[slug] is driven by folders under public/blogs. Without this, the
+// sitemap ships without the notes. (The old /blog URLs redirect here.)
 // Read with plain fs: this config is loaded as CommonJS by the next-sitemap
 // CLI, so it cannot import app/utils/getBlogData.ts.
 function blogPaths(config) {
@@ -15,7 +15,7 @@ function blogPaths(config) {
     .readdirSync(blogsDir, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
     .map((entry) => ({
-      loc: `/blog/${entry.name}`,
+      loc: `/work/notes/${entry.name}`,
       changefreq: config.changefreq,
       priority: config.priority,
       lastmod: config.autoLastmod ? new Date().toISOString() : undefined,

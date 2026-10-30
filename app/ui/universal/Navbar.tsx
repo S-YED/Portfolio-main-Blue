@@ -20,8 +20,8 @@ export function Navbar(): JSX.Element {
       link: "/",
     },
     {
-      name: "Blog",
-      link: "/blog",
+      name: "Work",
+      link: "/work",
     },
     {
       name: "Resume",

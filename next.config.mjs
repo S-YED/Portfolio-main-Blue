@@ -16,7 +16,15 @@ const nextConfig = {
 
         return config;
     },
-    reactStrictMode: false  // Turn off because the world is rendering twice
+    reactStrictMode: false,  // Turn off because the world is rendering twice
+    // The blog merged into /work (2026-10-30). Permanent redirects keep every old
+    // link, share card and search result working.
+    async redirects() {
+        return [
+            { source: "/blog", destination: "/work", permanent: true },
+            { source: "/blog/:slug", destination: "/work/notes/:slug", permanent: true },
+        ];
+    },
 };
 
 export default nextConfig;
